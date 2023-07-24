@@ -22,9 +22,6 @@ target/
 *.iws
 *.iml
 *.ipr
-*.mvnw
-*.mvn
-/mvn/wrapper
 
 ### NetBeans ###
 /nbproject/private/
