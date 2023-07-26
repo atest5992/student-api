@@ -30,10 +30,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentDTO save(StudentDTO studentDTO) {
-        if (isNull(studentDTO) || isBlank(studentDTO.getEmail()) || !isValidEmail(studentDTO.getEmail())
-            || isBlank(studentDTO.getPassword()) || nonNull(studentDTO.getId())) {
-            throw new IllegalArgumentException("Student DTO is not valid.");
-        }
+        validateStudent(studentDTO);
 
         StudentDO studentDO = studentConverter.dtoToDo(studentDTO);
         studentDO = studentDAO.save(studentDO);
@@ -42,9 +39,20 @@ public class StudentServiceImpl implements StudentService {
         return studentConverter.doToDto(studentDO);
     }
 
+    private void validateStudent(StudentDTO studentDTO) {
+        if (isNull(studentDTO) || isBlank(studentDTO.getEmail()) || !isValidEmail(studentDTO.getEmail())
+            || isBlank(studentDTO.getPassword()) || nonNull(studentDTO.getId())) {
+            throw new IllegalArgumentException("Student DTO is not valid.");
+        }
+
+        if (studentDAO.existsByEmail(studentDTO.getEmail())) {
+            throw new IllegalArgumentException("Student is already registered.");
+        }
+    }
+
     @Override
     public List<StudentDTO> findAll() {
-        return null;
+        return studentConverter.doToDto(studentDAO.findAll());
     }
 
     @Override

@@ -10,10 +10,10 @@ CREATE TABLE student
 
 CREATE TABLE student_grade
 (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    student_id BIGINT,
-    grade      DOUBLE NOT NULL,
-    grade_date DATE   NOT NULL,
-    description       VARCHAR(100) NOT NULL,
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    student_id  BIGINT,
+    grade       DOUBLE       NOT NULL,
+    grade_date  DATE         NOT NULL,
+    description VARCHAR(100) NOT NULL,
     FOREIGN KEY (student_id) REFERENCES student (id)
 );

@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,6 +14,6 @@ public class StudentGradeDTO {
     private Long id;
     private Long studentId;
     private Double grade;
-    private Date gradeDate;
+    private String gradeDate;
     private String description;
 }

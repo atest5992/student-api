@@ -6,8 +6,7 @@ import java.util.List;
 
 public interface StudentGradeService extends AbstractService {
 
+    StudentGradeDTO saveGrade(StudentGradeDTO studentGradeDTO);
     List<StudentGradeDTO> getGradesByStudentId(Long studentId);
-    List<StudentGradeDTO> findAllStudentGrades();
-
-    StudentGradeDTO addNote(Long gradeId, String note);
+    StudentGradeDTO getById(Long id);
 }

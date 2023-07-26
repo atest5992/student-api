@@ -13,6 +13,7 @@ public class StudentConverter implements AbstractConverter<StudentDTO, StudentDO
             .id(studentDO.getId())
             .email(studentDO.getEmail())
             .username(studentDO.getUsername())
+            .password(studentDO.getPassword())
             .build();
     }
 
